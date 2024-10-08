@@ -1,0 +1,12 @@
+name = "custom-s2s-example-worker"
+workers_dev = true
+compatibility_date = "2024-08-22"
+main = "index.js"
+
+# update and uncomment the line below to specify the route.
+# route = "<fill in>"
+
+[vars]
+POLICY_AUD="<fill in>"
+TEAM_DOMAIN="<fill in>.cloudflareaccess.com"
+EXTERNAL_SERVICE_ENDPOINT="<fill in>"
