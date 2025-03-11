@@ -1,5 +1,5 @@
-name = "custom-s2s-example-worker"
-workers_dev = true
+name = "custom-s2s-demo-worker"
+#workers_dev = true
 compatibility_date = "2024-08-22"
 main = "index.js"
 
@@ -9,4 +9,6 @@ main = "index.js"
 [vars]
 POLICY_AUD="<fill in>"
 TEAM_DOMAIN="<fill in>.cloudflareaccess.com"
-EXTERNAL_SERVICE_ENDPOINT="<fill in>"
+# adjust Min/Max Score as needed
+MIN_SCORE=60
+MAX_SCORE=100
