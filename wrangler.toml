@@ -9,6 +9,3 @@ main = "index.js"
 [vars]
 POLICY_AUD="<fill in>"
 TEAM_DOMAIN="<fill in>.cloudflareaccess.com"
-# adjust Min/Max Score as needed
-MIN_SCORE=60
-MAX_SCORE=100
