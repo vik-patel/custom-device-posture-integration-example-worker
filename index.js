@@ -1,31 +1,18 @@
 const jose = require('jose')
 
 async function computePostureScores(devices) {
-  const resp = await fetch(`${EXTERNAL_SERVICE_ENDPOINT}`)
-  const body = await resp.json()
-  const devicePosture = body.result
-  const evaluations = await evaluateDevices(devices, devicePosture)
-  return evaluations
-}
-
-/**
- * Where your business logic should go.
- * Function to match external device posture checks to devices received in the request.
- * All devices in the request MUST be returned in the response
- * @param {*} devices - devices on a cloudflare account to be evaluated. See 'Request Body' in README for more details.
- * @param {*} devicePosture - Device posture checks from the third party service. 
- * @returns evaluations as a map for each device in 'devices'.
- * The key should be the Cloudflare device_id and the value should be an object consisting of an
- * external id (s2s_id) and assigned score. See 'Response Body' in README for more details.
- */
-async function evaluateDevices(devices, devicePosture) {
+  //console.log(devices)
   let evaluations = {}
   devices.forEach(device => {
-    evaluations[device.device_id] =  {s2s_id: "example_external_id", score: 0}
+    evaluations[device.device_id] =  {s2s_id: device.device_id, score: getRndInteger(`${MIN_SCORE},${MAX_SCORE}`)}
   })
+  //console.log(evaluations)
   return evaluations
 }
 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 // EVERYTHING PAST THIS SHOULD NOT NEED TO CHANGE UNLESS YOU WANT TO
 // ==================================================================
