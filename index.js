@@ -4,7 +4,7 @@ async function computePostureScores(devices) {
   //console.log(devices)
   let evaluations = {}
   devices.forEach(device => {
-    evaluations[device.device_id] =  {s2s_id: device.device_id, score: getRndInteger(`${MIN_SCORE},${MAX_SCORE}`)}
+    evaluations[device.device_id] =  {s2s_id: device.device_id, score: getRndInteger(60,100)}
   })
   //console.log(evaluations)
   return evaluations
